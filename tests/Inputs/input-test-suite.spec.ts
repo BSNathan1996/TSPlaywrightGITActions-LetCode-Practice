@@ -1,7 +1,7 @@
 import { InputAction } from "../../actions/Inputs/input-action"
 import {test as base} from '@playwright/test';
 import { InputView } from "../../views/Inputs/input-views";
-import { InputTestData } from "../../test-data/Inputs/testData-inputs";
+import { InputTestData } from "../../testData/Inputs/testData-inputs";
 import { BaseAction } from "../../common/base/base-action";
 
 type userFixture = {
