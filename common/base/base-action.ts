@@ -21,4 +21,11 @@ export class BaseAction {
         await this.page.getByRole('link', {name: ' Edit '}).click();
     }
 
+    public async navigateToButton() {
+        await this.navigateBase();
+        await this.page.waitForLoadState();
+        // await this.page.locator("a[href='/button']").click();
+        await this.page.getByRole('link', {name: ' Click '}).click();
+    }
+
 }

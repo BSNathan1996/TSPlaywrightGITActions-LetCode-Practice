@@ -16,7 +16,7 @@ export class helper {
         this.isSuccess === true ? console.log("Element is visible") : console.log("Element is not visible");
     }
 
-    public async waitForElementToBeEnabled(element: any): Promise<any> {
+    public async waitForElementToBeEnabled(element: string): Promise<any> {
         await this.page.waitForLoadState()
         this.isSuccess = await this.page.locator(element).isEnabled();
         this.isSuccess === true ? console.log("Element is visible") : console.log("Element is not visible");
@@ -32,6 +32,29 @@ export class helper {
         await this.page.waitForLoadState()
         await this.page.locator(element).isEditable();
     }
+
+    public async retryClickOperation(element: string, retryCount: number, timeOut?: number): Promise<any> {
+        await this.page.waitForLoadState()
+        let count = 0;
+        while (count < retryCount) {
+            timeOut ? await this.page.waitForTimeout(timeOut) : null;            
+            await this.page.locator(element).click();
+            count++;
+        }
+    }
+
+    public async isDisabled(element: string) {
+        await this.page.waitForLoadState()
+        let flag = await this.page.locator(element).isDisabled();
+        return flag;
+    }
+
+    public async isEnabled(element: string) {
+        await this.page.waitForLoadState()
+        let flag = await this.page.locator(element).isEnabled();
+        return flag;
+    }
+
 }
 
 export interface Dictionary<T> {
