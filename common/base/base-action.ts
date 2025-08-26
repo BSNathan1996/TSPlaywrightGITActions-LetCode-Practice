@@ -16,7 +16,9 @@ export class BaseAction {
 
     public async navigateToInputs() {
         await this.navigateBase();
-        await this.page.locator("a[href='/edit']").click();
+        await this.page.waitForLoadState();
+        // await this.page.locator("a[href='/edit']").click();
+        await this.page.getByRole('link', {name: ' Edit '}).click();
     }
 
 }

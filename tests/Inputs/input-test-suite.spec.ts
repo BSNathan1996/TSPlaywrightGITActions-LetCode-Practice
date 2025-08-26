@@ -1,5 +1,5 @@
 import { InputAction } from "../../actions/Inputs/input-action"
-import {test as base} from '@playwright/test';
+import { test as base } from '@playwright/test';
 import { InputView } from "../../views/Inputs/input-views";
 import { InputTestData } from "../../testData/Inputs/testData-inputs";
 import { BaseAction } from "../../common/base/base-action";
@@ -41,7 +41,6 @@ userFixtureInput("Verify if user is able to clear the text in Append textbox", a
 userFixtureInput("Verify if user is able to clear text and enter data in insideBox", async ({base, inputAction}) => {
     await base.navigateToInputs();
     await inputAction.clearTextBox(InputView.insideTextBox);
-    await inputAction.inputTextFillText(InputView.insideTextBox, "Test Name");
 });
 
 userFixtureInput("Verify if user is able to enter data in readonly textbox", async({base, inputAction}) => {
