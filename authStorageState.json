@@ -1,0 +1,17 @@
+[
+    {
+        "tag": "Valid",
+        "username": "nathan@email.com",
+        "password": "password"
+    },
+    {
+        "tag": "InValid1",
+        "username": "admin@email.com",
+        "password": "password2"
+    },
+    {
+        "tag": "InValid2",
+        "username": "someone@email.com",
+        "password": "password3"
+    }
+]

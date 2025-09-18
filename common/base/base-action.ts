@@ -10,6 +10,10 @@ export class BaseAction {
         this.helper = new helper(this.page);
     }
 
+    public async authLoginBase(){
+        await this.page.goto("https://freelance-learn-automation.vercel.app/login");
+    }
+    
     public async navigateBase() {
         await this.page.goto("https://letcode.in/test");
     }
@@ -26,6 +30,13 @@ export class BaseAction {
         await this.page.waitForLoadState();
         // await this.page.locator("a[href='/button']").click();
         await this.page.getByRole('link', {name: ' Click '}).click();
+    }
+
+    public async navigateToSelect() {
+        await this.navigateBase();
+        await this.page.waitForLoadState();
+        // await this.page.locator("a[href='/button']").click();
+        await this.page.getByRole('link', {name: ' Drop-Down '}).click();
     }
 
 }
