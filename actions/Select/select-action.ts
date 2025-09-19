@@ -18,22 +18,20 @@ export class SelectActions {
 
     public async selectSupeandverify(element: string, testData: Dictionary<string>) {
         await this.page.waitForLoadState();
-        let scrollbox = await this.page.locator(element).filter({
-            hasText:testData.stephen
-        });
-        await scrollbox.scrollIntoViewIfNeeded();
-        await scrollbox.click();
+        let scrollbox = await this.page.locator(element);
+        scrollbox.selectOption(testData.stephen)
         let successText = await this.page.locator(SelectViews.notifySuccess);
-        await expect(successText).toHaveText(`You have selected ${testData.Bat}`);
+        await expect(successText).toHaveText(`You have selected ${testData.stephen}`);
     }
 
     public async selectProgramandPrintAll(element: string, testData: Dictionary<string>) {
         await this.page.waitForLoadState();
         let progDrop =  await this.page.locator(element);
-        let progText = await progDrop.locator(`option`).all();
+        await progDrop.click();
+        let progText = await this.page.$$(element);
         for( let prog of progText){
             let programmingText = await prog.textContent();
-            console.log(programmingText);
+            console.log(`${programmingText}`);
         }
         for (let prog of progText){
             if (testData.py === await prog.textContent()){
