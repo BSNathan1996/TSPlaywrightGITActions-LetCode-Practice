@@ -13,25 +13,29 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    
     - name: Install dependencies
       run: npm ci
+    
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    
     - name: Run Playwright tests
       run: npx playwright test
+    
     - name: Load test report history
       uses: actions/checkout@v3
       if: always()
       continue-on-error: true
       with:
-          ref: gh-pages
-          path: gh-pages
+          ref: main
+          path: Playwright-report
 
     - name: Build test report
       uses: simple-elf/allure-report-action@v1.7
       if: always()
       with:
-          gh_pages: gh-pages
+          gh_pages: Playwright-report
           allure_history: allure-history
           allure_results: build/allure-results
 
@@ -41,4 +45,4 @@ jobs:
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main
-          publish_dir: allure-history
+          publish_dir: build/allure-results
