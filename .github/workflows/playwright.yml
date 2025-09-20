@@ -28,7 +28,7 @@ jobs:
       if: always()
       continue-on-error: true
       with:
-          ref: main
+          ref: gitPageContent
           path: Playwright-report
 
     - name: Build test report
@@ -44,5 +44,5 @@ jobs:
       if: always()
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: main
+          publish_branch: gitPageContent
           publish_dir: build/allure-results
