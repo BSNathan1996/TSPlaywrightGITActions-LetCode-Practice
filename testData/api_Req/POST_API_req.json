@@ -1,0 +1,11 @@
+{
+    "firstname": "B S",
+    "lastname": "Nathan",
+    "totalprice": 1111,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2025-01-01",
+        "checkout": "2025-01-03"
+    },
+    "additionalneeds": "Beer Bottle and Chilly Chicken"
+}

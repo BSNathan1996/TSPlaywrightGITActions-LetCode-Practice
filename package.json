@@ -11,5 +11,8 @@
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.2.1",
     "allure-playwright": "^3.4.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.0.0"
   }
 }
